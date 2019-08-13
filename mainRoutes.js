@@ -8,11 +8,11 @@ mainRoutes.get('/', function(req,res,next) {
 });
 
 mainRoutes.post('/', function(req,res,next) {
-    let response = "";
+    let response = '';
     if (req.body === undefined || Object.keys(req.body).length === 0) {
-      response = "I didn't see anything anything in the body";
+      response = `I didn't see anything anything in the body`;
     } else {
-      response = "message received";
+      response = 'message received';
 
     }
     res.send(response);
