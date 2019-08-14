@@ -1,9 +1,16 @@
 'use strict';
 
-var express = require('express');
-var app = express();
-var mainRoutes = require('./mainRoutes');
-var userRoutes = require('./userRoutes');
+const express = require('express');
+const app = express();
+const mainRoutes = require('./mainRoutes');
+const userRoutes = require('./userRoutes');
+const bodyParser = require('body-parser');
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
