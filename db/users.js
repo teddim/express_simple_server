@@ -3,10 +3,10 @@
 function find(name){
   const promise = new Promise((resolve,reject)=> {
     if(true) {
-      resolve({id:5, name: name})
+      resolve({id:5, name: name});
     }
     else {
-      reject("something went wrong")
+      reject("something went wrong");
     }
   })
   return promise; //this function returns a promise

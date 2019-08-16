@@ -11,8 +11,11 @@ userRoutes.get('/', function(req,res){
 //in browser try http://localhost:3000/api/user/teddi?why=because
 
 userRoutes.get('/:name/', function(req,res){
-  userController.getOne();
-  res.send({paramreceived:req.params, queryreceived: req.query});
+  userController.getOne()
+  .then(data => {
+      res.send({paramreceived:req.params, queryreceived: req.query, data: data});
+  });
+
 });
 
 module.exports = userRoutes;

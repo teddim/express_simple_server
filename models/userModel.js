@@ -1,4 +1,7 @@
+const db = require('../db/users');
+
 const getOne = function(){
-  return "response with data";
+  return db.find('teddi');
+  // return result;
 }
 module.exports = {getOne};
