@@ -11,7 +11,7 @@ userRoutes.get('/', function(req,res){
 //in browser try http://localhost:3000/api/user/teddi?why=because
 
 userRoutes.get('/:name/', function(req,res){
-  userController.getOne();
+  userController.getOne(); // if this app were hooked into a db it would be asynchronous and we would be dealing with promises or callback functions. The res.send would be in the .then or the callback function. See the promises branch for an example.
   res.send({paramreceived:req.params, queryreceived: req.query});
 });
 
