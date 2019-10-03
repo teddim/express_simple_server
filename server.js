@@ -22,3 +22,24 @@ app.use('/api/user', userRoutes);
 app.listen('3000',function(){
   console.log('listening on port 3000');
 });
+
+
+
+
+/* ********************************************************
+Gracefully shutdown mongoose connection when nodemon restarts
+https://github.com/simonholmes/getting-MEAN/blob/chapter-10/app_api/models/db.js#L33
+*********************************************************/
+const mongoose = require('mongoose');
+
+const gracefulShutdown = function(msg, callback) {
+    mongoose.connection.close(function() {
+        console.log('Mongoose disconnected through ' + msg);
+        callback();
+    });
+};
+process.once('SIGUSR2', function() {
+    gracefulShutdown('nodemon restart', function() {
+        process.kill(process.pid, 'SIGUSR2');
+    });
+});
