@@ -5,6 +5,7 @@ const app = express();
 const mainRoutes = require('./mainRoutes');
 const userRoutes = require('./userRoutes');
 const bodyParser = require('body-parser');
+const db = require('./db/config');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
