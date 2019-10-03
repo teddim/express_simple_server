@@ -1,7 +1,10 @@
-const db = require('../db/users');
+const Users = require('../db/usersSchema');
 
-const getOne = function(){
-  return db.find('teddi');
-  // return result;
+const getOne = function(name){
+  return Users.find({name: name});
 }
-module.exports = {getOne};
+
+const createOne = function(user){
+  return Users.create(user)
+}
+module.exports = {getOne, createOne};
